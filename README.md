@@ -1,5 +1,9 @@
 This is the home for projects that express my personal brand.
 
+Some brand standards:
+* [colors](./stylesheets/colors.css)
+* metal: nickel
+
 Most content is licenses under the
 <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">
   Creative Commons Attribution 3.0 United States License.
