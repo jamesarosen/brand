@@ -92,8 +92,10 @@ input[type="text"], input[type="password"],
 b, big, blink, center, dir, font, i, s, strike, u {
   /* you're doing it wrong */
   color: purple;
-  background-color: green;
-  border: 2px solid pink;
+  background-color: orange;
+  border: 10px solid pink;
   font-size: 6em;
+  line-height: 1em;
   text-decoration: blink;
+  z-index: 9999;
 }
