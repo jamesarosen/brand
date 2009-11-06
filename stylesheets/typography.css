@@ -1,0 +1,98 @@
+/*  this file should be included after a good reset.css */
+
+@media screen, projection, tv, handheld {
+  /* on-screen headers are serif, content is sans */
+  body {
+    font-family: "Fontin Sans", "Helvetica Neue", Helvetica, "Geneva", sans-serif;
+    font-size: 100%;    /* 16px by default, but resize-able */
+    line-height: 1.5em;
+  }
+  h1, h2, h3, h4, h5, h6, legend, lh { font-family: "Calluna", Times, "Times New Roman", Georgia, serif; }
+  
+  h3      { font-weight: bold; }
+  h4      { font-style: italic; }
+  a       { text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  
+  /* on-screen font sizes are all in em or % so users can resize them.
+     For each selector that has a different font-size, it should have
+     a line-height that counterbalances such that font-size x line-height
+     is a multiple of the body line-height (here 1.5em) */
+  h1      { font-size: 2em; line-height: 1.5em; }
+  h2, legend, lh { font-size: 1.5em; margin-top: 0.8em; margin-bottom: 0.2em; }
+  h3, h4 { margin-top: 1.2em; margin-bottom: 0.3em; }
+  small, aside, details, blockquote, .sidebar, .callout { font-size: 0.75em; line-height: 2em; }
+  
+  p + p { margin-top: 1.5em; }
+  
+  p { width: 52em;}
+  blockquote p {
+    /* total width (width + padding-left + padding-right) 
+       should equal (normal p's width)/(blockquote font-size):
+       52em/0.75 = 70em */
+    padding-left: 5em;
+    padding-right: 5em;
+    width: 60em;
+  }
+}
+
+@media print {
+  /* on paper, headers and content are both serif,
+     but headers are stylized a bit */
+  body {
+    font-family: "Calluna", "Times New Roman", Times, Georgia, serif;
+    font-size: 10px;
+    line-height: 12px;
+  }
+  
+  /* printed font sizes are all in px for precision;
+     no need for users to resize since there's no UI.
+     Line-heights should be multiples of 12px. */
+  h1              { font-size: 30px; line-height: 36px; }
+  h2, legend, lh  { font-size: 24px; line-height: 35px; }
+  h3              { font-size: 16px; line-height: 24px; }
+  h4              { font-size: 12px; line-height: 24px; }
+  
+  h3, h5, lh      { text-decoration: underline; }
+  h4, h6          { font-style: italic; }
+  
+  small, aside, details, blockquote, .sidebar, .callout { font-size: 9px; }
+  
+  p { text-indent: 3em; }
+  h1 + p:first-letter, h2 + p:first-letter, p:first-child:first-letter {
+    display: block;
+    float: left;
+    font-size: 3em;
+    padding: 7px;
+  }
+  h1 + p, h2 + p, h3 + p, p:first-child { text-indent: 0; }
+  
+  a:link, a:visited {
+    background: transparent;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+}
+
+pre, code, kbd, samp, tt, keygen {
+  font-family: "DejaVu Sans Mono", "Lucida Console", Courier, monospace;
+}
+
+del { text-decoration:line-through; }
+
+a, button, command,
+  input[type="button"], input[type="submit"]      { cursor: pointer; }
+abbr[title], acronym[title], time[title]          { cursor: help; }
+input[type="text"], input[type="password"],
+  input[type="search"], input[type="email"],
+  input[type="url"], input[type="tel"], textarea  { cursor: text; }
+
+b, big, blink, center, dir, font, i, s, strike, u {
+  /* you're doing it wrong */
+  color: purple;
+  background-color: green;
+  border: 2px solid pink;
+  font-size: 6em;
+  text-decoration: blink;
+}
