@@ -26,14 +26,16 @@
   p + p { margin-top: 1.5em; }
   
   p { width: 52em;}
-  blockquote p {
-    /* total width (width + padding-left + padding-right) 
+  blockquote {
+    /* total width (margins + borders + padding + width)
        should equal (normal p's width)/(blockquote font-size):
        52em/0.75 = 70em */
-    padding-left: 5em;
-    padding-right: 5em;
-    width: 60em;
+    margin-left: 5em; margin-right: 5em;
+    border-left: 0.5em solid;
+    padding-left: 0.5em;
+    width: 59em;
   }
+  blockquote p { width: auto; }
 }
 
 @media print {
@@ -71,8 +73,7 @@
     background: transparent;
     font-weight: bold;
     text-decoration: underline;
-  }
-  
+  }  
 }
 
 pre, code, kbd, samp, tt, keygen {
