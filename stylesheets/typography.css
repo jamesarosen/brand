@@ -28,10 +28,10 @@
     /* total width (margins + borders + padding + width)
        should equal (normal p's width)/(blockquote font-size):
        52em/0.75 = 70em */
-    margin-left: 5em; margin-right: 5em;
+    margin-left: 5em; margin-right: 6em;
     border-left: 0.5em solid;
     padding-left: 0.5em;
-    width: 59em;
+    width: 58em;
   }
   blockquote p { width: auto; }
 }
