@@ -1,0 +1,10 @@
+/* TEAM */
+  All the Things: James A Rosen
+  Twitter: @jamesarosen
+  From: Amherst, MA, USA
+  Lives: San Francisco Bay Area, CA, USA
+
+/* SITE */
+  Language: English
+  Doctype: HTML5
+  Tools: Sublime Text, Fastly, Travis CI
