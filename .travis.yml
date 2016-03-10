@@ -1,0 +1,8 @@
+language: ruby
+script:
+- lib/deploy-to-fastly.rb
+env:
+  global:
+  - secure: Sdym7wJHvkW+UY50cp2TkSxriv/A47Fbu//TWP+e27w/dwBfRqjtSvPwQm5G55SZ8wikpeiWyHZxr4Zr69/svBd/+t81m/FoPTvQX6A3cbOHCD2rlwJQEcl+hkRSb2nvAQ+bVo5BV0mS5IxJ00zjGBr8SsaAh9Dr9IY24XPuYRw=
+  - secure: IlCkkOAoQ6SKZkYVfJfd7cmg+925vLmLWzPDcEfKP1WgA8lFBtFg7UdtO7oW+LLqnfzycGBMdOMNuRxernaAgkWoblEHJVj3zx1Gn9l3HSkJm4/8aQNgNd+EQ3p4ve1VpDSBWOmmkqHqjShIHFuthqxaGTxExOJQiHLyfnqPwhI=
+  - secure: wEipCnCFDoqAxbL4RhfI12ASjP6PDxMQC2XxyfJ+1AHWhIgjjz9TcRNEjSfFAwbvK65xsassO/4TJ0N8Hn6RWBQCnFtBpTS5Q2HLH6rrk5GQKCMhC8CBdusqPVcGFGvpt3whNsIRhDDOvQDiYaGi+8atJiN2iJWJ+YWPjf4Jdhs=
