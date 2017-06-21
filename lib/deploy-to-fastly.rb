@@ -52,51 +52,17 @@ class FastlyDictionaryItemUploader
   end
 
   def make_request(fileToUpload)
-    request = if dictionary_item_exists?(fileToUpload)
-      put(fileToUpload)
-    else
-      post(fileToUpload)
-    end
-
     @http.start do |http|
-      http.request request
+      http.request put(fileToUpload)
     end
-  end
-
-  def dictionary_item_exists?(fileToUpload)
-    @http.start do |http|
-      uri = dictionary_item_uri fileToUpload
-      response = http.request get(fileToUpload)
-
-      return true if response.code == '200'
-      return false if response.code == '404'
-
-      puts response.body
-      response.each do |key, value|
-        puts "#{key}: #{value}"
-      end
-      raise "Error checking whether #{fileToUpload.path} exists"
-    end
-  end
-
-  def get(fileToUpload)
-    uri = dictionary_item_uri(fileToUpload)
-    add_common_headers Net::HTTP::Get.new(uri.request_uri)
   end
 
   def put(fileToUpload)
     uri = dictionary_item_uri(fileToUpload)
     Net::HTTP::Put.new(uri.request_uri).tap do |req|
-      add_common_headers req
-      req.set_form_data({
-        'item_value' => fileToUpload.contents
-      })
-    end
-  end
-
-  def post(fileToUpload)
-    Net::HTTP::Post.new(dictionary_items_uri.request_uri).tap do |req|
-      add_common_headers req
+      req['Accept'] = 'application/json'
+      req['Connection'] = 'close'
+      req['Fastly-Key'] = @api_key
       req.set_form_data({
         'item_key' => fileToUpload.path,
         'item_value' => fileToUpload.contents
@@ -104,21 +70,9 @@ class FastlyDictionaryItemUploader
     end
   end
 
-  def add_common_headers(request)
-    request.tap do |req|
-      req['Accept'] = 'application/json'
-      req['Connection'] = 'close'
-      req['Fastly-Key'] = @api_key
-    end
-  end
-
   def dictionary_item_uri(fileToUpload)
     key = URI.encode fileToUpload.path, URI::REGEXP::PATTERN::RESERVED
     URI.parse "https://api.fastly.com/service/#{@service_id}/dictionary/#{@dictionary_id}/item/#{key}"
-  end
-
-  def dictionary_items_uri
-    URI.parse "https://api.fastly.com/service/#{@service_id}/dictionary/#{@dictionary_id}/item"
   end
 end
 
