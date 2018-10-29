@@ -8,7 +8,7 @@ script:
 
 deploy:
   - on:
-      branch: master
+      branch: main
       repo: jamesarosen/brand
     provider: script
     script: lib/deploy-to-fastly.rb
